@@ -1,0 +1,18 @@
+WITH
+  customer_source AS (
+  SELECT
+    *
+  FROM
+    ${ref("customers")} ),
+  customers AS (
+  SELECT
+    customer_id,
+    CONCAT(first_name, last_name) AS full_name,
+    email,
+    country_code
+  FROM
+    customer_source )
+SELECT
+  *
+FROM
+  customers
