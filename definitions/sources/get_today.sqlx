@@ -1,6 +1,0 @@
-config{ type: 'view' }
-SELECT
-  order_id,
-  ${get_today_date()} AS today_date
-FROM
-  `debezium.orders`
