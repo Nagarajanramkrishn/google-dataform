@@ -1,8 +1,7 @@
 config {
-    type: 'view',
-    name: 'customer',
-    description: 'description of the table',
-    
+  type: "view",
+  schema: "dataform",
+  name: "new_customer"
 }
 
 WITH

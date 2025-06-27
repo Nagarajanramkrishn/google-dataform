@@ -1,0 +1,32 @@
+
+config {
+    type: "table",
+    assertions: {
+        uniqueKey: ["product_id"],
+        nonNull: ["product_name"],
+
+        rowConditions:[
+            'unit_price > 100'
+            
+        ]
+    }
+}
+
+
+
+with products_source as(
+
+    select * from ${ ref("products") }
+),
+
+final as (
+    select product_id,
+        product_name,
+        unit_price
+    
+    from 
+        products_source
+
+)
+
+select * from final
