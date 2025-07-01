@@ -11,6 +11,8 @@ WITH
     *
   FROM
     ${ref("customers")} ),
+
+
   customers AS (
   SELECT
     customer_id,
@@ -19,6 +21,8 @@ WITH
     country_code
   FROM
     customer_source )
+
+    
 SELECT
   *
 FROM

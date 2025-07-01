@@ -1,0 +1,11 @@
+config {
+    type:"view"
+}
+
+js {
+    
+    function json_flatten(model_name, table_name)
+    {
+        
+    }
+}

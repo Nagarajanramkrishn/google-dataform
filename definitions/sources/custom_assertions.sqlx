@@ -1,0 +1,14 @@
+config {
+    type: "assertion"
+    
+}
+
+select 
+    *
+
+from 
+    ${ ref("new_customer") }
+
+where
+    customer_id is null 
+    or email is null
