@@ -1,0 +1,12 @@
+
+js {
+
+    const { json_flatten } = require("includes/json_flatten");
+    const { keys } = require( "includes/json_flatten");
+    const data = require( "includes/json_flatten");
+}
+
+SELECT
+ artist_info,
+ ${data.json_flatten("artist_info", data.keys)}
+FROM ${ref("artist_data")}

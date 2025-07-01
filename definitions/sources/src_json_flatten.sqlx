@@ -1,11 +1,48 @@
 config {
-    type:"view"
+    type: "table"
 }
 
 js {
-    
-    function json_flatten(model_name, table_name)
-    {
-        
-    }
+
+    var keys = ["name", "country", "debut_year", "genre"];
+
 }
+
+WITH
+  artist_source AS(
+
+  SELECT
+    *
+  FROM
+    ${ref("artist_data")} 
+    
+    ),
+
+
+  artsit_flatten AS (
+
+  SELECT
+    artist_info,
+    ${keys.map(key => `JSON_VALUE(${"artist_info"}, '$.${key}') AS ${key}`).join(",\n  ")}
+  FROM
+    artist_source
+    
+    ),
+
+
+  final AS (
+
+  SELECT
+    artist_info,
+    name,
+    country,
+    CAST(debut_year AS int64) as debut_year,
+    genre 
+
+    from artsit_flatten
+    
+    )
+SELECT
+  *
+FROM
+  final
