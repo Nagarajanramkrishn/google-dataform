@@ -1,10 +1,12 @@
 config {
-    type: "view"
+    type: "view",
+    dependencies: ["customer", "orders"]
+    
 }
 
 
 with customers as(
-    select * from ${ ref("customer")}
+    select * from ${ ref("customers")}
 
 ),
 
