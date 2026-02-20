@@ -1,0 +1,9 @@
+config {
+    type: "operations",
+    tags: ["favorites"],
+    dependencies: ["fruits"]
+}
+
+delete dataform.fruits where fruit= "Apples";
+
+delete dataform.fruits where fruit ="Oranges";

@@ -1,0 +1,13 @@
+config {
+    
+    type: "table",
+    dependencies : ["int_customer_and_orders_joined"]
+}
+
+with customer_orders as (
+
+    select * 
+    from ${ref("int_customer_and_orders_joined")}
+)
+
+select * from customer_orders

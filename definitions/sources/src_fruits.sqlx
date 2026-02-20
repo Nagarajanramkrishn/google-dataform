@@ -1,0 +1,26 @@
+config {
+    type: "table",
+    name: "fruits",
+    description: "description of the fruits table",
+    tags: ["favorites", "least_liked"]
+}
+
+
+
+select "Apples" as fruit,
+        10 as count,
+
+union all
+
+select "Banana" as fruit,
+        5 as count
+
+union all
+
+select "Oranges" as fruit,
+        3 as count
+
+union all
+
+select "Pears" as fruit,
+    0 as count

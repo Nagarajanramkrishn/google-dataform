@@ -1,0 +1,13 @@
+config {
+  type: "incremental",
+  uniqueKey: ["studentid", "subject"]
+}
+
+SELECT
+  *
+FROM
+  ${ref("studentGrades")}
+${when(incremental(), 
+  `WHERE created_at > (SELECT MAX(created_at) FROM ${self()})
+  OR updated_at > (SELECT MAX(updated_at) FROM ${self()})`
+)}
